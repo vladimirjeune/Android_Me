@@ -16,11 +16,13 @@
 
 package com.example.android.android_me.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.android.android_me.R;
@@ -35,8 +37,23 @@ public class MasterListFragment extends Fragment {
         // The callback is a method named onImageSelected(int position) that contains information about
         // which position on the grid of images a user has clicked
 
-    // TODO (2) Override onAttach to make sure that the container activity has implemented the callback
+    public  OnImageClickeListener mCallback;
 
+    public interface OnImageClickeListener {
+        void onImageSelected(int position) ;
+    }
+
+    // TODO (2) Override onAttach to make sure that the container activity has implemented the callback
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            mCallback = (OnImageClickeListener) context;
+        } catch (ClassCastException cce) {
+            throw new ClassCastException("Activity MUST implement Callback for Fragment.");
+        }
+    }
 
     // Mandatory empty constructor
     public MasterListFragment() {
@@ -60,6 +77,13 @@ public class MasterListFragment extends Fragment {
         gridView.setAdapter(mAdapter);
 
         // TODO (3) Set a click listener on the gridView and trigger the callback onImageSelected when an item is clicked
+        // Since we are using a gridView we are using ItemClickListeners and AdapterView ItemClickListeners, to get position.
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                mCallback.onImageSelected(position);  // Make the Activity call it's function, with passed in position
+            }
+        });
 
         // Return the root view
         return rootView;
