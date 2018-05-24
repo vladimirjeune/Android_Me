@@ -35,6 +35,14 @@ public class BodyPartFragment extends Fragment {
     public static final String IMAGE_ID_LIST = "image_ids";
     public static final String LIST_INDEX = "list_index";
 
+    public static final int HEAD = 0;
+    public static final int BODY = 1;
+    public static final int LEGS = 2;
+
+    public static final String HEAD_TEXT = "head";
+    public static final String BODY_TEXT = "body";
+    public static final String LEGS_TEXT = "legs";
+
     // Tag for logging
     private static final String TAG = "BodyPartFragment";
 

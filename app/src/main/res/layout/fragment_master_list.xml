@@ -12,17 +12,36 @@
 
 <!-- GridView that displays AndroidMe images -->
 <!-- TODO (1) Turn this into a LinearLayout and add a "Next" button at the bottom of the gridview -->
-<GridView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/images_grid_view"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:adjustViewBounds="true"
-    android:columnWidth="180dp"
-    android:gravity="center"
-    android:horizontalSpacing="8dp"
-    android:numColumns="3"
-    android:padding="16dp"
-    android:stretchMode="columnWidth"
-    android:verticalSpacing="8dp">
-</GridView>
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <GridView
+        android:id="@+id/images_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:adjustViewBounds="true"
+        android:columnWidth="180dp"
+        android:gravity="center"
+        android:horizontalSpacing="8dp"
+        android:numColumns="3"
+        android:padding="16dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="8dp">
+    </GridView>
+
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        tools:text="@string/next_button"
+        android:text="@string/next_button"
+        />
+
+</LinearLayout>
