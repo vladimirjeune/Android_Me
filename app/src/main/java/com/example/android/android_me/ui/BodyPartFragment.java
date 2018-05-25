@@ -107,6 +107,7 @@ public class BodyPartFragment extends Fragment {
         mListIndex = index;
     }
 
+
     /**
      * Save the current state of this fragment
      */

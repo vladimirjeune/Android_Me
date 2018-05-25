@@ -26,6 +26,12 @@ import com.example.android.android_me.data.AndroidImageAssets;
 // This activity will display a custom Android image composed of three body parts: head, body, and legs
 public class AndroidMeActivity extends AppCompatActivity {
 
+    public static final int HEAD = 0;
+    public static final int BODY = 1;
+    public static final int LEGS = 2;
+    public static final String HEAD_TEXT = "head";
+    public static final String BODY_TEXT = "body";
+    public static final String LEGS_TEXT = "legs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
